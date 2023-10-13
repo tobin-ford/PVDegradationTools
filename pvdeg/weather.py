@@ -194,7 +194,7 @@ def get_NSRDB_fnames(satellite, names, NREL_HPC = False, **_):
                'Americas' : 'current'}
 
     if NREL_HPC:
-        hpc_fp = '/datasets/NSRDB/'
+        hpc_fp = '/kfs2/pdatasets/NSRDB/'
         hsds = False
     else:
         hpc_fp = '/nrel/nsrdb/'
