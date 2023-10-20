@@ -4,6 +4,7 @@ Collection of classes and functions for geospatial analysis.
 
 from . import standards
 from . import humidity
+from . import letid
 
 import xarray as xr
 import dask.array as da
@@ -260,6 +261,25 @@ def template_parameters(func):
             'RH_back_encap': ('gid', 'time'),
             'RH_backsheet': ('gid', 'time'),
         }
+
+        attrs = {}
+
+        add_dims = {}
+
+    elif func == letid.calc_letid_outdoors:
+        shapes = {'Datetime': ('gid', 'time'),
+                  'Temperature': ('gid', 'time'),
+                  'Injection': ('gid', 'time'),
+                  'NA': ('gid', 'time'),
+                  'NB': ('gid', 'time'),
+                  'NC': ('gid', 'time'),
+                  'tau': ('gid', 'time'),
+                  'Jsc': ('gid', 'time'),
+                  'Voc': ('gid', 'time'),
+                  'Isc': ('gid', 'time'),
+                  'FF': ('gid', 'time'),
+                  'Pmp': ('gid', 'time'),
+                  'Pmp_norm': ('gid', 'time')}
 
         attrs = {}
 
