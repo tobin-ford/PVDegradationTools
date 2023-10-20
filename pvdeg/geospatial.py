@@ -39,20 +39,17 @@ def start_dask(hpc=None):
 
     .. code-block:: python
 
-        hpc = {'manager': 'slurm',
-               'n_jobs': 1,  # Max number of nodes used for parallel processing
-               'cores': 36,
-               'memory': '96GB',
-               'queue': 'debug',
-               'account': 'pvsoiling',
-               'walltime': '01:00:00',
-               'interface': 'ib0',
-               'processes': 18,
-               'local_directory': '/tmp/scratch',
-               'shared_temp_directory': '/scratch/mspringe',
-               'job_extra_directives': ['-o ./logs/slurm-%j.out'],
-               'silence_logs': 'error',
-               'death_timeout': '60',}
+        kestrel = {
+            'manager': 'slurm',
+            'n_jobs': 1,  # Max number of nodes used for parallel processing
+            'cores': 104,
+            'memory': '256GB',
+            'account': 'pvsoiling',
+            'walltime': '4:00:00',
+            'processes': 52,
+            'local_directory': '/tmp/scratch',
+            'job_extra_directives': ['-o ./logs/slurm-%j.out'],
+            'death_timeout': 600,}
 
     Returns
     -------
