@@ -85,6 +85,13 @@ def correlated_data_matrix(iterations, *args):
 
     uncorrelated_samples_matrix = np.random.normal(loc=0, scale=1, size=(len(args), iterations))
     coefficient_matrix = _symettric_correlation_matrix(args)
+
+    # the decomposition is not in here
+    # seems like it needs to be
+    # look at jupyter notebook
+
+    # i think if should go right here 
+
     correlated_samples = np.matmul(coefficient_matrix, uncorrelated_samples_matrix)
     correlated_samples = np.matrix(correlated_samples)
 
@@ -117,6 +124,9 @@ def correlated(weather_df, meta,
         could look like  {'ea' : [mean, stdev] }
     """
 
+    # need to figure out the right way to call these
     A = _symettric_correlation_matrix(corr)
     decomposition = cholesky(A, lower = True)
 
+    # the way I am passing MC_params to the function may be wrong
+    correlated_df = correlated_data_matrix(20000, MC_params)
